@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <?php
+        session_start();
         require "./app/views/includes/metatags.php"
     ?>
 </head>
@@ -16,24 +17,44 @@
                     include "./app/views/home.php";
                     break;
                 case 'read':
-                    $contactos = $crud->read();
-                    include "./app/views/read.php";
+                    if (isset($_SESSION["session"])) {
+                        $contactos = $crud->read();
+                        include "./app/views/read.php";
+                    } else {
+                        header("location: ./home");
+                    }
                     break;
                 case 'create':
-                    $categorias = $crud->readCategoria();
-                    include "./app/views/create.php";
+                    if (isset($_SESSION["session"])) {
+                        $categorias = $crud->readCategoria();
+                        include "./app/views/create.php";
+                    } else {
+                        header("location: ./home");
+                    }
                     break;
                 case 'createCategoria':
-                    $categorias = $crud->readCategoria();
-                    include "./app/views/createCategoria.php";
+                    if (isset($_SESSION["session"])) {
+                        $categorias = $crud->readCategoria();
+                        include "./app/views/createCategoria.php";
+                    } else {
+                        header("location: ./home");
+                    }
                     break;
                 case 'update':
-                    $contacto = $crud->show($_REQUEST["id"]);
-                    include "./app/views/update.php";
+                    if (isset($_SESSION["session"])) {
+                        $contacto = $crud->show($_REQUEST["id"]);
+                        include "./app/views/update.php";
+                    } else {
+                        header("location: ./home");
+                    }
                     break;
                 case 'updateCategoria':
-                    $categoria = $crud->showCategoria($_REQUEST["id"]);
-                    include "./app/views/updateCategoria.php";
+                    if (isset($_SESSION["session"])) {
+                        $categoria = $crud->showCategoria($_REQUEST["id"]);
+                        include "./app/views/updateCategoria.php";
+                    } else {
+                        header("location: ./home");
+                    }
                     break;
                 default:
                     header("location: ./read");
@@ -45,7 +66,7 @@
     ?>
 
     <?php
-        require "./app/views/includes/scripts.php"
+        require "./app/views/includes/scripts.php";
     ?>
 </body>
 </html>

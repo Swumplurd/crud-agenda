@@ -4,7 +4,13 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Crear Contacto</h1>
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>Crear Contacto</h1>
+                <div>
+                    <a class="btn btn-danger" href="./app/model/process/sessionClose.process.php">Cerrar Sesion</a>
+                </div>
+            </div>
+
             <div>
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>

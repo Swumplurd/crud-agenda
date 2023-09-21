@@ -5,9 +5,15 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col">
-            <a class="btn btn-success" href="./create">Agregar</a>
-            <a class="btn btn-success" href="./createCategoria">Agregar Categoria</a>
-            
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a class="btn btn-success" href="./create">Agregar</a>
+                    <a class="btn btn-success" href="./createCategoria">Agregar Categoria</a>
+                </div>
+                <div>
+                    <a class="btn btn-danger" href="./app/model/process/sessionClose.process.php">Cerrar Sesion</a>
+                </div>
+            </div>
             <hr>
 
             <table class="table table-secondary table-striped table-hover table-bordered table-sm table-responsive-sm">
@@ -45,5 +51,6 @@
 </div>
 
 <?php
-    require "./app/controller/delete.controller.php"
+    require "./app/controller/delete.controller.php";
+    require "./app/controller/session.controller.php";
 ?>
